@@ -2,6 +2,7 @@ package org.anumonk.katas.primefactors;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +30,7 @@ public class PrimeFactorsTest {
 
 		// we expect the prime number 2 to be returned
 		assertThat("resulting prime factor for 2 should be the prime number 2",
-				resultingFactors, is(listWithValues(1)));
+				resultingFactors, is(listWithValues(2)));
 
 	}
 	
