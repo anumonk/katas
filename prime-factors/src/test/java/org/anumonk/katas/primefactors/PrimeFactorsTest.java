@@ -2,7 +2,6 @@ package org.anumonk.katas.primefactors;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,10 +32,9 @@ public class PrimeFactorsTest {
 				resultingFactors, is(listWithValues(2)));
 
 	}
-	
+
 	@Test
-	public void shouldReturnPrimeForThree()
-	{
+	public void shouldReturnPrimeForThree() {
 		// when generating the prime factors of three
 		List<Integer> resultingFactors = primeFactorsService.generate(3);
 
@@ -44,7 +42,18 @@ public class PrimeFactorsTest {
 		assertThat("resulting prime factor for 3 should be the prime number 3",
 				resultingFactors, is(listWithValues(3)));
 	}
-	
+
+	@Test
+	public void shouldReturnPrimesForFour() {
+		// when generating the prime factors of four
+		List<Integer> resultingFactors = primeFactorsService.generate(4);
+
+		// we expect the prime numbers 2,2 to be returned
+		assertThat("resulting prime factor for 4 should be the prime number 2,2",
+				resultingFactors, is(listWithValues(2,2)));
+
+	}
+
 	private List<Integer> listWithValues(Integer... vals) {
 		ArrayList<Integer> valueHolder = new ArrayList<Integer>();
 		for (Integer val : vals) {
