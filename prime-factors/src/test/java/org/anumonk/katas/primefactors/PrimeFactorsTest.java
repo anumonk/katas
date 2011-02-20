@@ -72,8 +72,20 @@ public class PrimeFactorsTest {
 
 		// we expect the prime numbers 2,3 to be returned
 		assertThat(
-				"resulting prime factor for 8 should be the prime numbezrs 2,2,2",
+				"resulting prime factor for 8 should be the prime numbers 2,2,2",
 				resultingFactors, is(listWithValues(2, 2, 2)));
+	}
+
+	@Test
+	public void shouldReturnPrimesForNine() {
+		// when generating the prime factors of nine
+		List<Integer> resultingFactors = primeFactorsService.generate(9);
+
+		// we expect the prime numbers 2,3 to be returned
+		assertThat(
+				"resulting prime factor for 9 should be the prime numbers 3,3",
+				resultingFactors, is(listWithValues(3, 3)));
+
 	}
 
 	private List<Integer> listWithValues(Integer... vals) {

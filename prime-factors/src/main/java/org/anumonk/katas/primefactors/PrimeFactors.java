@@ -8,11 +8,14 @@ public class PrimeFactors {
 	public List<Integer> generate(Integer n) {
 		ArrayList<Integer> primeFactors = new ArrayList<Integer>();
 		if (n > 1) {
-			while (n % 2 == 0) {
-				primeFactors.add(2);
-				n /= 2;
+			int p = 2;
+			while (p < n) {
+				while (n % p == 0) {
+					primeFactors.add(p);
+					n /= p;
+				}
+				p ++;
 			}
-
 			if (n > 1) {
 				primeFactors.add(n);
 			}
