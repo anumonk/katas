@@ -7,11 +7,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class PrimeFactorsTest {
 
-	private PrimeFactors primeFactorsService = new PrimeFactors();
+	private PrimeFactors primeFactorsService;
+
+	@Before
+	public void setup() {
+		primeFactorsService = new PrimeFactors();
+	}
 
 	@Test
 	public void shouldReturnEmptyListForOne() {
