@@ -34,6 +34,17 @@ public class PrimeFactorsTest {
 
 	}
 	
+	@Test
+	public void shouldReturnPrimeForThree()
+	{
+		// when generating the prime factors of three
+		List<Integer> resultingFactors = primeFactorsService.generate(3);
+
+		// we expect the prime number 3 to be returned
+		assertThat("resulting prime factor for 3 should be the prime number 3",
+				resultingFactors, is(listWithValues(3)));
+	}
+	
 	private List<Integer> listWithValues(Integer... vals) {
 		ArrayList<Integer> valueHolder = new ArrayList<Integer>();
 		for (Integer val : vals) {
