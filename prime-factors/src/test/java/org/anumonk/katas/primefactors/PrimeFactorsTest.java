@@ -49,9 +49,31 @@ public class PrimeFactorsTest {
 		List<Integer> resultingFactors = primeFactorsService.generate(4);
 
 		// we expect the prime numbers 2,2 to be returned
-		assertThat("resulting prime factor for 4 should be the prime number 2,2",
-				resultingFactors, is(listWithValues(2,2)));
+		assertThat(
+				"resulting prime factor for 4 should be the prime numbers 2,2",
+				resultingFactors, is(listWithValues(2, 2)));
+	}
 
+	@Test
+	public void shouldReturnPrimesForSix() {
+		// when generating the prime factors of six
+		List<Integer> resultingFactors = primeFactorsService.generate(6);
+
+		// we expect the prime numbers 2,3 to be returned
+		assertThat(
+				"resulting prime factor for 6 should be the prime numbers 2,3",
+				resultingFactors, is(listWithValues(2, 3)));
+	}
+
+	@Test
+	public void shouldReturnPrimesForEight() {
+		// when generating the prime factors of eight
+		List<Integer> resultingFactors = primeFactorsService.generate(8);
+
+		// we expect the prime numbers 2,3 to be returned
+		assertThat(
+				"resulting prime factor for 8 should be the prime numbezrs 2,2,2",
+				resultingFactors, is(listWithValues(2, 2, 2)));
 	}
 
 	private List<Integer> listWithValues(Integer... vals) {
