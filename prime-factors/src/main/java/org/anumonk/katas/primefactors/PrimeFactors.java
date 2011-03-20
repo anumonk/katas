@@ -8,10 +8,18 @@ import java.util.List;
  * http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata for more info
  * regarding this particular Kata.
  * 
+ * This particular implementation is an optimisation of the original kata as it
+ * will loop no more than n>=p*p times. See
+ * http://people.revoledu.com/kardi/tutorial
+ * /BasicMath/Prime/Algorithm-PrimeFactor.html for more details on this
+ * algorithm.
+ * 
  * @author anumonk
  * 
  */
 public class PrimeFactors {
+
+	private static final int LOWEST_PRIME_FACTOR = 2;
 
 	/**
 	 * Generates a list of prime-factors for a given integer greater than 1.
@@ -22,13 +30,25 @@ public class PrimeFactors {
 	 *         n was less than 1.
 	 */
 	public List<Integer> generate(Integer n) {
+
 		ArrayList<Integer> primeFactors = new ArrayList<Integer>();
 
-		for (int p = 2; n > 1; p++) {
-			for (; n % p == 0; n /= p) {
+		if (n < LOWEST_PRIME_FACTOR) {
+			return primeFactors;
+		}
+
+		int p = LOWEST_PRIME_FACTOR;
+
+		while (n >= p * p) {
+			if (n % p == 0) {
 				primeFactors.add(p);
+				n = n / p;
+			} else {
+				p++;
 			}
 		}
+
+		primeFactors.add(n);
 
 		return primeFactors;
 	}
