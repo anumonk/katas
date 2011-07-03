@@ -1,6 +1,7 @@
 package org.anumonk.katas.primefactors;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,15 +30,15 @@ public class PrimeFactors {
 	 * @return a list of prime-factors in numerical sequence or an empty list if
 	 *         n was less than 1.
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Integer> generate(Integer n) {
 
-		ArrayList<Integer> primeFactors = new ArrayList<Integer>();
-
 		if (n < LOWEST_PRIME_FACTOR) {
-			return primeFactors;
+			return Collections.EMPTY_LIST;
 		}
 
 		int p = LOWEST_PRIME_FACTOR;
+		ArrayList<Integer> primeFactors = new ArrayList<Integer>();
 
 		while (n >= p * p) {
 			if (n % p == 0) {
