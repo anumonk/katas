@@ -33,6 +33,11 @@ public class PrimeFactors {
 	@SuppressWarnings("unchecked")
 	public List<Integer> generate(Integer n) {
 
+		if (n == null) {
+			throw new IllegalArgumentException(
+					"cannot generate prime factors for null value");
+		}
+
 		if (n < LOWEST_PRIME_FACTOR) {
 			return Collections.EMPTY_LIST;
 		}

@@ -94,6 +94,14 @@ public class PrimeFactorsTest {
 
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void shouldExceptionWithNullArgument() {
+		// when generating prime factors for a null value
+		primeFactorsService.generate(null);
+		
+		// then we expect an exception to be thrown
+	}
+
 	private List<Integer> listWithValues(Integer... vals) {
 		ArrayList<Integer> valueHolder = new ArrayList<Integer>();
 		for (Integer val : vals) {
