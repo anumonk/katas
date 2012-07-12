@@ -21,84 +21,67 @@ public class PrimeFactorsTest {
 
 	@Test
 	public void shouldReturnEmptyListForOne() {
-		// when generating the prime-factors of 1
-		List<Integer> resultingFactors = primeFactorsService.generate(1);
 
-		// we expect an empty list to be returned
+		List<Integer> resultingFactors = primeFactorsService.generate(1);
 		assertThat(resultingFactors, is(Collections.EMPTY_LIST));
 	}
 
 	@Test
 	public void shouldReturnPrimeForTwo() {
-		// when generating the prime factors of two
-		List<Integer> resultingFactors = primeFactorsService.generate(2);
 
-		// we expect the prime number 2 to be returned
-		assertThat("resulting prime factor for 2 should be the prime number 2",
-				resultingFactors, is(listWithValues(2)));
+		List<Integer> resultingFactors = primeFactorsService.generate(2);
+		assertThat("resulting prime factor for 2 should be the prime number 2", resultingFactors, is(listWithValues(2)));
 
 	}
 
 	@Test
 	public void shouldReturnPrimeForThree() {
-		// when generating the prime factors of three
-		List<Integer> resultingFactors = primeFactorsService.generate(3);
 
-		// we expect the prime number 3 to be returned
-		assertThat("resulting prime factor for 3 should be the prime number 3",
-				resultingFactors, is(listWithValues(3)));
+		List<Integer> resultingFactors = primeFactorsService.generate(3);
+		assertThat("resulting prime factor for 3 should be the prime number 3", resultingFactors, is(listWithValues(3)));
 	}
 
 	@Test
 	public void shouldReturnPrimesForFour() {
-		// when generating the prime factors of four
-		List<Integer> resultingFactors = primeFactorsService.generate(4);
 
-		// we expect the prime numbers 2,2 to be returned
-		assertThat(
-				"resulting prime factor for 4 should be the prime numbers 2,2",
-				resultingFactors, is(listWithValues(2, 2)));
+		List<Integer> resultingFactors = primeFactorsService.generate(4);
+		assertThat("resulting prime factor for 4 should be the prime numbers 2,2", resultingFactors, is(listWithValues(2, 2)));
 	}
 
 	@Test
 	public void shouldReturnPrimesForSix() {
-		// when generating the prime factors of six
-		List<Integer> resultingFactors = primeFactorsService.generate(6);
 
-		// we expect the prime numbers 2,3 to be returned
-		assertThat(
-				"resulting prime factor for 6 should be the prime numbers 2,3",
-				resultingFactors, is(listWithValues(2, 3)));
+		List<Integer> resultingFactors = primeFactorsService.generate(6);
+		assertThat("resulting prime factor for 6 should be the prime numbers 2,3", resultingFactors, is(listWithValues(2, 3)));
 	}
 
 	@Test
 	public void shouldReturnPrimesForEight() {
-		// when generating the prime factors of eight
+		
 		List<Integer> resultingFactors = primeFactorsService.generate(8);
-
-		// we expect the prime numbers 2,3 to be returned
-		assertThat(
-				"resulting prime factor for 8 should be the prime numbers 2,2,2",
-				resultingFactors, is(listWithValues(2, 2, 2)));
+		assertThat("resulting prime factor for 8 should be the prime numbers 2,2,2", resultingFactors, is(listWithValues(2, 2, 2)));
 	}
 
 	@Test
 	public void shouldReturnPrimesForNine() {
-		// when generating the prime factors of nine
+
 		List<Integer> resultingFactors = primeFactorsService.generate(9);
+		assertThat("resulting prime factor for 9 should be the prime numbers 3,3", resultingFactors, is(listWithValues(3, 3)));
 
-		// we expect the prime numbers 2,3 to be returned
-		assertThat(
-				"resulting prime factor for 9 should be the prime numbers 3,3",
-				resultingFactors, is(listWithValues(3, 3)));
+	}
+	
+	@Test
+	public void shouldReturnPrimesForTen() {
 
+		List<Integer> resultingFactors = primeFactorsService.generate(10);
+		assertThat("resulting prime factor for 10 should be the prime numbers 2,5", resultingFactors, is(listWithValues(2, 5)));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void shouldExceptionWithNullArgument() {
 		// when generating prime factors for a null value
 		primeFactorsService.generate(null);
-		
+
 		// then we expect an exception to be thrown
 	}
 

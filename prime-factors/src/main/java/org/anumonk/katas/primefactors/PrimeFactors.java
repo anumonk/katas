@@ -5,11 +5,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Attempt at the prime-factors kata, as specified by Uncle Bob. See
+ * Attempt at the prime-factors Kata, as specified by Uncle Bob. See
  * http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata for more info
  * regarding this particular Kata.
  * 
- * This particular implementation is an optimisation of the original kata as it
+ * This particular implementation is an optimisation of the original Kata as it
  * will loop no more than n>=p*p times. See
  * http://people.revoledu.com/kardi/tutorial
  * /BasicMath/Prime/Algorithm-PrimeFactor.html for more details on this
@@ -25,32 +25,30 @@ public class PrimeFactors {
 	/**
 	 * Generates a list of prime-factors for a given integer greater than 1.
 	 * 
-	 * @param n
-	 *            the number for which to generate prime-factors.
-	 * @return a list of prime-factors in numerical sequence or an empty list if
-	 *         n was less than 1.
+	 * @param n. the number for which prime-factors will be generated.
+	 * @return a list of prime-factors in numerical sequence order or an empty
+	 *         list if n is less than 1.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Integer> generate(Integer n) {
 
 		if (n == null) {
-			throw new IllegalArgumentException(
-					"cannot generate prime factors for null value");
+			throw new IllegalArgumentException("cannot generate prime factors for null value of n");
 		}
 
 		if (n < LOWEST_PRIME_FACTOR) {
 			return Collections.EMPTY_LIST;
 		}
 
-		int p = LOWEST_PRIME_FACTOR;
+		int candidate = LOWEST_PRIME_FACTOR;
 		ArrayList<Integer> primeFactors = new ArrayList<Integer>();
 
-		while (n >= p * p) {
-			if (n % p == 0) {
-				primeFactors.add(p);
-				n = n / p;
+		while (n >= candidate * candidate) {
+			if (n % candidate == 0) {
+				primeFactors.add(candidate);
+				n = n / candidate;
 			} else {
-				p++;
+				candidate++;
 			}
 		}
 
